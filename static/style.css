@@ -1,0 +1,22 @@
+/* Centering a single block-level element */
+.centered-block {
+  margin: 0 auto;
+}
+
+/* Centering inline-level elements within a block-level container */
+.centered-inline-container {
+  text-align: center;
+}
+
+/* Centering elements using Flexbox */
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Centering elements using Grid Layout */
+.grid-container {
+  display: grid;
+  place-items: center;
+}
