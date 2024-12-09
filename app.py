@@ -19,8 +19,8 @@ model = load_model('my_model.keras')
 def index():
     user_agent = request.headers.get('User-Agent')
     print('user_agent: ', user_agent)
-    if user_agent.find("Chrome") > -1:
-      return render_template('index_safari.html')
+    if user_agent.find("Firefox") > -1:
+      return render_template('index_firefox.html')
     else:
       return render_template('index_safari.html')
 
