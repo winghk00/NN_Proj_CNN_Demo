@@ -69,12 +69,26 @@ function takePhoto() {
   snap.play();
 
   // take the data out of the canvas
-  const data = canvas.toDataURL('image/jpeg');
-  const link = document.createElement('a');
-  link.href = data;
-  link.setAttribute('download', 'handsome');
-  link.innerHTML = `<img src="${data}" alt="Handsome Man" />`;
-  strip.insertBefore(link, strip.firstChild);
+  const dataURL = canvas.toDataURL('image/jpeg');
+  // Send the data URL to the server
+  fetch('/capture', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ image: dataURL })
+  })
+  .then(response => response.text())
+  .then(data => {
+      // Handle the server's response (e.g., display the prediction)
+      const result = document.createElement('h3');
+      result.innerHTML = data;
+      document.getElementById('prediction-result').innerHTML = '';
+      document.getElementById('prediction-result').appendChild(result);
+  })
+  .catch(error => {
+      console.error('Error sending image to server:', error);
+  });
 }
 
 function redEffect(pixels) {
