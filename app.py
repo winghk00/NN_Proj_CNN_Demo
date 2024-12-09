@@ -20,7 +20,7 @@ def index():
     user_agent = request.headers.get('User-Agent')
     print('user_agent: ', user_agent)
     if user_agent.find("Chrome") > -1:
-      return render_template('index.html')
+      return render_template('index_safari.html')
     else:
       return render_template('index_safari.html')
 
