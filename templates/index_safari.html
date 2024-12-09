@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Emotion Detection</title>
+    <title>Emotion Detection - s</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
@@ -20,7 +20,19 @@
     <video id="video" width="480" height="480" autoplay></video>
     
     <canvas id="canvas" width="480" height="480" style="display:none;"></canvas>
+  <div class="photobooth">
+    <div class="controls">
+      <button onClick="takePhoto()">Take Photo</button>
+    </div>
 
+    <canvas class="photo"></canvas>
+    <video class="player"></video>
+    <div class="strip"></div>
+  </div>
+
+  <audio class="snap" src="./snap.mp3" hidden></audio>
+
+  <script src="/static/script.js"></script>
 
     <script>
         // Get access to the camera
